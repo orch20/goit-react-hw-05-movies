@@ -6,15 +6,15 @@ export const MovieGallery = ({ movies }) => {
 
   return (
     <List>
-      {movies.map(({ id, title }) => (
-        <li>{title}</li>
+      {movies.map(({ id, title, name }) => (
+        <li key={id}>{title || name}</li>
       ))}
     </List>
   );
 };
 
 const List = styled.ul`
-  display: grid;
+  /* display: grid;
   max-width: calc(100vw - 48px);
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   grid-gap: 16px;
@@ -23,5 +23,5 @@ const List = styled.ul`
   padding: 0;
   list-style: none;
   margin-left: auto;
-  margin-right: auto;
+  margin-right: auto; */
 `;

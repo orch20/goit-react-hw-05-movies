@@ -15,9 +15,9 @@ code {
 }
 
 /* Стиль для NavLink */
-.active {
+.active-link {
   color: royalblue;
 }
-.active:hover:not(.active) {
+.link:hover:not(.active-link) {
   color: yellowgreen;
 }
