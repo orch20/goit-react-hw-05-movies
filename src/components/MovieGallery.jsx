@@ -1,13 +1,15 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 // import { ImageGalleryItem } from '../ImageGalleryItem/ImageGalleryItem';
 
 export const MovieGallery = ({ movies }) => {
-  console.log('mov', movies);
-
+  console.log('gallary', movies);
   return (
     <List>
       {movies.map(({ id, title, name }) => (
-        <li key={id}>{title || name}</li>
+        <li key={id}>
+          <Link to={`/Movies/${id}`}>{title || name}</Link>
+        </li>
       ))}
     </List>
   );

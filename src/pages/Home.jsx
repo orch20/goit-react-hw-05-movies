@@ -1,25 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import { movieService } from '../services/movieApi';
-import { MovieGallery } from '../components/MovieGallery';
+import { MovieGallery } from '../Components/MovieGallery';
+import { useFetchPopularMovies } from '../Hooks/useFetchMovies';
 
 export const Home = () => {
-  const [movies, setMovies] = useState([]);
-  useEffect(() => {
-    getPopularMovies();
-  }, []);
-
-  const getPopularMovies = async () => {
-    try {
-      const data = await movieService();
-      setMovies(data.results);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  const movies = useFetchPopularMovies();
   return (
-    <>
+    <main>
       <h2>Popular Movies</h2>
       <MovieGallery movies={movies} />
-    </>
+    </main>
   );
 };

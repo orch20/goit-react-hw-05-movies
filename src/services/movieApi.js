@@ -1,9 +1,22 @@
-// const APIKEY = 'a862388c03cb8401487df36e94a12066';
-const URL =
-  'https://api.themoviedb.org/3/trending/all/week?api_key=a862388c03cb8401487df36e94a12066';
+const APIKEY = 'a862388c03cb8401487df36e94a12066';
+const URL = `https://api.themoviedb.org/3`;
 
-export const movieService = async () => {
-  return await fetch(URL).then(res => {
+//api.themoviedb.org/3/movie/{movie_id}?api_key=<<api_key>>
+
+export const getPopularMovies = async () => {
+  return await fetch(`${URL}/trending/all/week?api_key=${APIKEY}`).then(res => {
+    if (!res.ok) {
+      //   return Promise.reject(new Error(`No ${searchQuery} picture`));
+    }
+    return res.json();
+  });
+};
+
+export const getMovieById = async id => {
+  console.log('api', id);
+  return await fetch(
+    `https://api.themoviedb.org/3/movie/${id}?api_key=${APIKEY}`
+  ).then(res => {
     if (!res.ok) {
       //   return Promise.reject(new Error(`No ${searchQuery} picture`));
     }
