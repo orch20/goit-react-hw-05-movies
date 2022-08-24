@@ -1,33 +1,37 @@
 // import { useFetchPopularMovies } from 'Hooks/useFetchMovies';
-import { useParams } from 'react-router-dom';
-
-import { getMovieById } from '../services/movieApi';
-import { useState, useEffect } from 'react';
-const useFetchMovieById = id => {
-  const [movie, setMovie] = useState({});
-
-  useEffect(() => {
-    getMovie();
-  }, []);
-  console.log('movie', movie);
-  const getMovie = async () => {
-    try {
-      console.log('asd', id);
-      const data = await getMovieById(id);
-      console.log(data);
-      setMovie(data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-  return movie;
-};
+import { useParams, Outlet } from 'react-router-dom';
+import { useFetchMovieById, useMovieImage } from 'Hooks/useFetchMovies';
 
 export const MovieDetails = () => {
   const { movieId } = useParams();
   console.log(movieId);
   const movie = useFetchMovieById(movieId);
-  return <div>{movie.title}</div>;
+
+  // /////////////////////////
+  // const image = useMovieImage(movie.poster_path);
+  // console.log(movie.poster_path);
+
+  // ////////////////////////
+
+  return (
+    <>
+      {movie.poster_path ? (
+        <img
+          src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+          alt={movie.title}
+        />
+      ) : (
+        <img
+          src={
+            'https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg?20200913095930'
+          }
+          alt={movie.title}
+        />
+      )}
+      <div>{movie.title}</div>
+      <Outlet />
+    </>
+  );
   // const movies = useFetchPopularMovies();
   // const res = movies.find(movie => movie.id === id);
 };

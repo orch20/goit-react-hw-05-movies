@@ -23,3 +23,14 @@ export const getMovieById = async id => {
     return res.json();
   });
 };
+
+// export const getMovieImage = async path => {
+//   return await fetch(
+//     `https://image.tmdb.org/t/p/w500${path}?api_key=${APIKEY}`
+//   ).then(res => {
+//     if (!res.ok) {
+//       //   return Promise.reject(new Error(`No ${searchQuery} picture`));
+//     }
+//     return res.json();
+//   });
+// };

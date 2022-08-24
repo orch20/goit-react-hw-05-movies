@@ -8,7 +8,7 @@ export const MovieGallery = ({ movies }) => {
     <List>
       {movies.map(({ id, title, name }) => (
         <li key={id}>
-          <Link to={`/Movies/${id}`}>{title || name}</Link>
+          <Link to={`/Movies/${id}`}>{title}</Link>
         </li>
       ))}
     </List>
