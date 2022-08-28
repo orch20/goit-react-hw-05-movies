@@ -4,18 +4,8 @@ const URL = `https://api.themoviedb.org/3`;
 //api.themoviedb.org/3/movie/{movie_id}?api_key=<<api_key>>
 
 export const getPopularMovies = async () => {
-  return await fetch(`${URL}/trending/all/week?api_key=${APIKEY}`).then(res => {
-    if (!res.ok) {
-      //   return Promise.reject(new Error(`No ${searchQuery} picture`));
-    }
-    return res.json();
-  });
-};
-
-export const getMovieById = async id => {
-  console.log('api', id);
   return await fetch(
-    `https://api.themoviedb.org/3/movie/${id}?api_key=${APIKEY}`
+    `${URL}/trending/movie/week?api_key=${APIKEY}&include_adult=false`
   ).then(res => {
     if (!res.ok) {
       //   return Promise.reject(new Error(`No ${searchQuery} picture`));
@@ -24,13 +14,36 @@ export const getMovieById = async id => {
   });
 };
 
-// export const getMovieImage = async path => {
-//   return await fetch(
-//     `https://image.tmdb.org/t/p/w500${path}?api_key=${APIKEY}`
-//   ).then(res => {
-//     if (!res.ok) {
-//       //   return Promise.reject(new Error(`No ${searchQuery} picture`));
-//     }
-//     return res.json();
-//   });
-// };
+export const getMovieById = async id => {
+  return await fetch(
+    `https://api.themoviedb.org/3/movie/${id}?api_key=${APIKEY}&include_adult=false`
+  ).then(res => {
+    if (!res.ok) {
+      //   return Promise.reject(new Error(`No ${searchQuery} picture`));
+    }
+    return res.json();
+  });
+};
+
+export const getMovieCast = async id => {
+  return await fetch(
+    `https://api.themoviedb.org/3/movie/${id}/credits?api_key=${APIKEY}&include_adult=false`
+  ).then(res => {
+    if (!res.ok) {
+      //   return Promise.reject(new Error(`No ${searchQuery} picture`));
+    }
+    return res.json();
+  });
+};
+// https://api.themoviedb.org/3/search/movie?api_key=<<api_key>>&language=en-US&page=1&include_adult=false
+
+export const getMovieByQuery = async name => {
+  return await fetch(
+    `https://api.themoviedb.org/3/search/movie?api_key=${APIKEY}&query=${name}&include_adult=false`
+  ).then(res => {
+    if (!res.ok) {
+      //   return Promise.reject(new Error(`No ${searchQuery} picture`));
+    }
+    return res.json();
+  });
+};

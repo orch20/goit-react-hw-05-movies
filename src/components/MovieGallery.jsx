@@ -5,25 +5,12 @@ import { Link } from 'react-router-dom';
 export const MovieGallery = ({ movies }) => {
   console.log('gallary', movies);
   return (
-    <List>
-      {movies.map(({ id, title, name }) => (
+    <ul>
+      {movies.map(({ id, title }) => (
         <li key={id}>
           <Link to={`/Movies/${id}`}>{title}</Link>
         </li>
       ))}
-    </List>
+    </ul>
   );
 };
-
-const List = styled.ul`
-  /* display: grid;
-  max-width: calc(100vw - 48px);
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  grid-gap: 16px;
-  margin-top: 0;
-  margin-bottom: 0;
-  padding: 0;
-  list-style: none;
-  margin-left: auto;
-  margin-right: auto; */
-`;
