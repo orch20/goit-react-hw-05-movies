@@ -1,14 +1,12 @@
-import { Container, Header, Logo, Navigation } from './Layout.styled';
 import { NavLink, Outlet, useLocation } from 'react-router-dom';
-// import { movieService } from '../services/movieApi';
+import css from './Layout.module.scss';
 
 const Layout = () => {
   const location = useLocation();
   return (
-    <Container>
-      <Header>
-        <Logo>Logo</Logo>
-        <Navigation>
+    <div className={css.container}>
+      <header className={css.header}>
+        <nav className={css.nav}>
           <NavLink
             state={{ from: location }}
             to="/"
@@ -23,10 +21,10 @@ const Layout = () => {
           >
             Movies
           </NavLink>
-        </Navigation>
-      </Header>
+        </nav>
+      </header>
       <Outlet />
-    </Container>
+    </div>
   );
 };
 

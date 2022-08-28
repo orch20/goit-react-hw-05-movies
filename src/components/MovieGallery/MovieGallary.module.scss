@@ -1,0 +1,14 @@
+.list {
+  padding: 15px;
+  border-radius: 5px;
+
+  color: white;
+  background-color: #03557d;
+}
+.link {
+  text-decoration: none;
+  color: white;
+  &:hover {
+    color: royalblue;
+  }
+}

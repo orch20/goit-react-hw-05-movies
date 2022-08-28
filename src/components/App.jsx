@@ -3,7 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 
 const Layout = lazy(() => import('./Layout'));
 const Home = lazy(() => import('../Pages/Home'));
-const MovieDetails = lazy(() => import('./MovieDetails'));
+const MovieDetails = lazy(() => import('./MovieDetails/MovieDetails'));
 const MovieCast = lazy(() => import('../Pages/MovieCast'));
 const Reviews = lazy(() => import('../Pages/Reviews'));
 const MoviesSearch = lazy(() => import('../Pages/Movies'));
@@ -11,7 +11,7 @@ const NotFound = lazy(() => import('../Pages/NotFound'));
 
 export const App = () => {
   return (
-    <Suspense>
+    <Suspense fullback={<p>...Loading</p>}>
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />

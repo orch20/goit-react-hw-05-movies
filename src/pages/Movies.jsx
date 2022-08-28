@@ -1,7 +1,7 @@
 import { MovieSearchForm } from 'Components/MovieSearchForm';
 import { useState, useEffect } from 'react';
 import { getMovieByQuery } from '../services/movieApi.js';
-import { MovieGallery } from '../Components/MovieGallery';
+import { MovieGallery } from '../Components/MovieGallery/MovieGallery';
 import { useSearchParams } from 'react-router-dom';
 
 const MoviesSearch = () => {

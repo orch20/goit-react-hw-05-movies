@@ -1,16 +1,18 @@
-import styled from 'styled-components';
 import { Link, useLocation } from 'react-router-dom';
-
-// import { ImageGalleryItem } from '../ImageGalleryItem/ImageGalleryItem';
+import css from './MovieGallary.module.scss';
 
 export const MovieGallery = ({ movies }) => {
   const location = useLocation();
   console.log('gallary', movies);
   return (
-    <ul>
+    <ul className={css.list}>
       {movies.map(({ id, title }) => (
         <li key={id}>
-          <Link state={{ from: location }} to={`/Movies/${id}`}>
+          <Link
+            className={css.link}
+            state={{ from: location }}
+            to={`/Movies/${id}`}
+          >
             {title}
           </Link>
         </li>
