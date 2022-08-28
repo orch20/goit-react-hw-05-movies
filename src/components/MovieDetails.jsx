@@ -1,5 +1,11 @@
 // import { useFetchPopularMovies } from 'Hooks/useFetchMovies';
-import { useParams, Outlet, Link, useNavigate } from 'react-router-dom';
+import {
+  useParams,
+  Outlet,
+  Link,
+  useNavigate,
+  useLocation,
+} from 'react-router-dom';
 import { useFetchMovieById } from 'Hooks/useFetchMovies';
 const POSTERWIDTH = 300;
 
@@ -7,9 +13,10 @@ export const MovieDetails = () => {
   const { movieId } = useParams();
 
   const movie = useFetchMovieById(movieId);
-
   const navigate = useNavigate();
-  const goBack = () => navigate(-1);
+  const location = useLocation();
+  const { from } = location?.state || '/';
+  const goBack = () => navigate(from);
   // /////////////////////////
   // const image = useMovieImage(movie.poster_path);
   // console.log(movie.poster_path);
@@ -38,8 +45,12 @@ export const MovieDetails = () => {
       <div>{movie.title}</div>
       <div>
         <h3>Aditional information</h3>
-        <Link to={`/Movies/${movie.id}/cast`}>Cast</Link>
-        <Link to={`/Movies/${movie.id}/cast`}>Reviews</Link>
+        <Link state={{ from }} to={`/Movies/${movie.id}/cast`}>
+          Cast
+        </Link>
+        <Link state={{ from }} to={`/Movies/${movie.id}/reviews`}>
+          Reviews
+        </Link>
       </div>
       <Outlet />
     </>

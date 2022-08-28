@@ -1,6 +1,6 @@
 export const CastList = ({ movieCast }) => {
   const { cast } = movieCast;
-  console.log('movieCast', cast);
+
   const element = cast?.map(({ cast_id, name, character, profile_path }) => (
     <li key={cast_id}>
       {profile_path ? (

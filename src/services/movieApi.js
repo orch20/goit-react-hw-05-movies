@@ -47,3 +47,14 @@ export const getMovieByQuery = async name => {
     return res.json();
   });
 };
+
+export const getReviews = async id => {
+  return await fetch(
+    `https://api.themoviedb.org/3/movie/${id}/reviews?api_key=${APIKEY}&include_adult=false`
+  ).then(res => {
+    if (!res.ok) {
+      //   return Promise.reject(new Error(`No ${searchQuery} picture`));
+    }
+    return res.json();
+  });
+};
