@@ -1,7 +1,7 @@
 import { MovieGallery } from '../Components/MovieGallery';
 import { useFetchPopularMovies } from '../Hooks/useFetchMovies';
 
-export const Home = () => {
+const Home = () => {
   const movies = useFetchPopularMovies();
   return (
     <main>
@@ -10,3 +10,5 @@ export const Home = () => {
     </main>
   );
 };
+
+export default Home;

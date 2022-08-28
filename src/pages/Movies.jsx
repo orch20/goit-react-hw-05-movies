@@ -3,9 +3,8 @@ import { useState, useEffect } from 'react';
 import { getMovieByQuery } from '../services/movieApi.js';
 import { MovieGallery } from '../Components/MovieGallery';
 import { useSearchParams } from 'react-router-dom';
-export const MoviesSearch = () => {
-  // const [userQuery, setUserQuery] = useState();
 
+const MoviesSearch = () => {
   const [movies, setMovies] = useState([]);
 
   const [searchParams, setSearchParams] = useSearchParams();
@@ -49,3 +48,5 @@ export const MoviesSearch = () => {
     </>
   );
 };
+
+export default MoviesSearch;

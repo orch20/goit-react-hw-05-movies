@@ -2,7 +2,7 @@ import { Container, Header, Logo, Navigation } from './Layout.styled';
 import { NavLink, Outlet, useLocation } from 'react-router-dom';
 // import { movieService } from '../services/movieApi';
 
-export const Layout = () => {
+const Layout = () => {
   const location = useLocation();
   return (
     <Container>
@@ -29,3 +29,5 @@ export const Layout = () => {
     </Container>
   );
 };
+
+export default Layout;

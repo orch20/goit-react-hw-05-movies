@@ -9,7 +9,7 @@ import {
 import { useFetchMovieById } from 'Hooks/useFetchMovies';
 const POSTERWIDTH = 300;
 
-export const MovieDetails = () => {
+const MovieDetails = () => {
   const { movieId } = useParams();
 
   const movie = useFetchMovieById(movieId);
@@ -58,3 +58,5 @@ export const MovieDetails = () => {
   // const movies = useFetchPopularMovies();
   // const res = movies.find(movie => movie.id === id);
 };
+
+export default MovieDetails;
