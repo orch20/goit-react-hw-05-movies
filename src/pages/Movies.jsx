@@ -13,20 +13,19 @@ const MoviesSearch = () => {
   console.log('searchParams', search);
 
   useEffect(() => {
+    const getMovie = async () => {
+      try {
+        const data = await getMovieByQuery(search);
+        // console.log('fetch movie', movies);
+        if (search) {
+          setMovies(data.results);
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    };
     getMovie();
   }, [search]);
-
-  const getMovie = async () => {
-    try {
-      const data = await getMovieByQuery(search);
-      console.log('fetch movie', movies);
-      if (search) {
-        setMovies(data.results);
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
 
   const handelSubmit = ({ search }) => {
     setSearchParams({ query: search });

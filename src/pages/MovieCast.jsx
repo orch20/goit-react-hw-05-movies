@@ -9,17 +9,16 @@ const MovieCast = () => {
   const { movieId } = useParams();
 
   useEffect(() => {
+    const movieCastFetch = async () => {
+      try {
+        const data = await getMovieCast(movieId);
+        setMovieCast(data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
     movieCastFetch();
-  }, [setMovieCast]);
-
-  const movieCastFetch = async () => {
-    try {
-      const data = await getMovieCast(movieId);
-      setMovieCast(data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  }, [movieId]);
 
   return <CastList movieCast={movieCast} />;
 };
