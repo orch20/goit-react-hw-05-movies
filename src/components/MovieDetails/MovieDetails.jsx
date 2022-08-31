@@ -33,7 +33,7 @@ const MovieDetails = () => {
   }, [movieId]);
 
   const genres = movie.genres?.map(genre => genre.name).join(', ');
-  console.log('movie deded', genres);
+
   return (
     <div className={css.wraper}>
       <button className={css.button} onClick={goBack}>
@@ -80,7 +80,7 @@ const MovieDetails = () => {
           Aditional information:{' '}
           <div className={css.linkWraper}>
             <NavLink
-              className={({ isActive }) => (isActive ? 'active-link' : 'link')}npm audit
+              className={({ isActive }) => (isActive ? 'active-link' : 'link')}
               state={{ from }}
               to={`/Movies/${movie.id}/cast`}
             >

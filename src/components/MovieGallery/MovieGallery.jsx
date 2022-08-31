@@ -3,7 +3,7 @@ import css from './MovieGallary.module.scss';
 
 export const MovieGallery = ({ movies }) => {
   const location = useLocation();
-  console.log('gallary', movies);
+
   return (
     <ul className={css.list}>
       {movies.map(({ id, title }) => (

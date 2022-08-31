@@ -11,7 +11,6 @@ const MoviesSearch = () => {
   const [searchParams, setSearchParams] = useSearchParams();
 
   const search = searchParams.get('query');
-  console.log('searchParams', search);
 
   useEffect(() => {
     const getMovie = async () => {

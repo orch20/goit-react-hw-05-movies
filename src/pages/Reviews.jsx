@@ -6,7 +6,7 @@ import { ReviewsList } from 'components/ReviewsList/ReviewsList';
 const Reviews = () => {
   const [movieReviews, setMovieReviews] = useState([]);
   const { movieId } = useParams();
-  console.log('movieReviews', movieReviews);
+
   useEffect(() => {
     const reviewsFetch = async () => {
       try {
