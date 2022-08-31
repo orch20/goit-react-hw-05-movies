@@ -1,8 +1,9 @@
+import css from './Cast.List.scss';
 export const CastList = ({ movieCast }) => {
   const { cast } = movieCast;
 
   const element = cast?.map(({ cast_id, name, character, profile_path }) => (
-    <li key={cast_id}>
+    <li className={'castItem'} key={cast_id}>
       {profile_path ? (
         <img
           src={`https://image.tmdb.org/t/p/w185${profile_path}`}
@@ -17,9 +18,13 @@ export const CastList = ({ movieCast }) => {
           width={185}
         />
       )}
-      <p>{name}</p>
-      <p>Character: {character}</p>
+      <div className={'castBottomThumb'}>
+        <p className={'title'}>{name}</p>
+        <p className={'title'}>
+          <span className={'titleText'}>as</span> {character}
+        </p>
+      </div>
     </li>
   ));
-  return <ul>{element}</ul>;
+  return <ul className={'castList'}>{element}</ul>;
 };

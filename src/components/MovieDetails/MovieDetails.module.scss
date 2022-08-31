@@ -1,20 +1,37 @@
 .wraper {
-  margin: 15px;
+  padding: 15px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center;
+  // text-align: center;
   justify-content: center;
-  margin-top: 15px;
 }
 .button {
   background-color: #03557d;
   border-radius: 5px;
   color: white;
   cursor: pointer;
+  &:hover {
+    color: royalblue;
+  }
+  margin: 0 auto 0 0;
+}
+.infoThumb {
+  display: flex;
+  margin-bottom: 15px;
+}
+.infoThumbText {
+  margin-left: 15px;
+}
+.infoTitle {
+  font-weight: 700;
 }
 .img {
   margin-top: 15px;
+  display: inline;
+}
+.overview {
+  margin-bottom: auto;
 }
 .movieTitle {
   text-align: center;
@@ -22,14 +39,31 @@
 .titleAditional {
   padding: 15px;
   border-radius: 5px;
-
+  width: 100%;
   color: white;
   background-color: #03557d;
 }
-.rating {
+.aditionalInfoWraper {
+  // align-self: flex-end;
   text-align: center;
 }
+.linkWraper {
+  margin-top: 10px;
+  :first-child {
+    margin-right: 30px;
+  }
+}
 
-.overview {
-  text-align: center;
+.link {
+  text-decoration: none;
+  color: white;
+  &:hover {
+    color: royalblue;
+  }
+  // &active {
+  //   color: orange;
+  // }
+}
+.selected {
+  color: orange;
 }

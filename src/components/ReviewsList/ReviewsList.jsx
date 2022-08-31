@@ -1,9 +1,10 @@
+import css from './ReviewsList.module.scss';
 export const ReviewsList = ({ reviewsList }) => {
   console.log('reviewsList', reviewsList);
 
   const element = reviewsList?.map(({ author, content, id }) => (
-    <li key={id}>
-      <p>User: {author}</p>
+    <li className={css.reviewsItem} key={id}>
+      <p className={css.title}>User: {author}</p>
       <p>{content}</p>
     </li>
   ));
