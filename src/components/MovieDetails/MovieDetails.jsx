@@ -80,7 +80,7 @@ const MovieDetails = () => {
           Aditional information:{' '}
           <div className={css.linkWraper}>
             <NavLink
-              className={({ isActive }) => (isActive ? 'active-link' : 'link')}
+              className={({ isActive }) => (isActive ? 'active-link' : 'link')}npm audit
               state={{ from }}
               to={`/Movies/${movie.id}/cast`}
             >

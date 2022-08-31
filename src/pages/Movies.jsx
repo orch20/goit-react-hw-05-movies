@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { getMovieByQuery } from '../services/movieApi.js';
 import { MovieGallery } from '../Components/MovieGallery/MovieGallery';
 import { useSearchParams } from 'react-router-dom';
+import css from './Movies.module.scss';
 
 const MoviesSearch = () => {
   const [movies, setMovies] = useState([]);
@@ -16,7 +17,7 @@ const MoviesSearch = () => {
     const getMovie = async () => {
       try {
         const data = await getMovieByQuery(search);
-        // console.log('fetch movie', movies);
+
         if (search) {
           setMovies(data.results);
         }
@@ -29,22 +30,20 @@ const MoviesSearch = () => {
 
   const handelSubmit = ({ search }) => {
     setSearchParams({ query: search });
-    // setUserQuery(search);
-    // console.log('query', userQuery);
   };
-  // const movie = useFetchMovieByQuery(userQuery);
-  console.log('movies', movies);
 
   return (
-    <>
+    <div className={css.wraper}>
       <h2>Search Movies</h2>
-      <MovieSearchForm onSubmit={handelSubmit} />
+      <div className={css.form}>
+        <MovieSearchForm onSubmit={handelSubmit} />
+      </div>
       {movies.length !== 0 ? (
         <MovieGallery movies={movies} />
       ) : (
         <p>Your search list is currently empty.</p>
       )}
-    </>
+    </div>
   );
 };
 
