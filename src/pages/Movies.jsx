@@ -1,7 +1,7 @@
-import { MovieSearchForm } from 'Components/MovieSearchForm';
+import { MovieSearchForm } from 'components/MovieSearchForm';
 import { useState, useEffect } from 'react';
 import { getMovieByQuery } from '../services/movieApi.js';
-import { MovieGallery } from '../Components/MovieGallery/MovieGallery';
+import { MovieGallery } from '../components/MovieGallery/MovieGallery';
 import { useSearchParams } from 'react-router-dom';
 import css from './Movies.module.scss';
 

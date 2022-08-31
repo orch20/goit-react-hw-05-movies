@@ -1,4 +1,4 @@
-import { MovieGallery } from '../Components/MovieGallery/MovieGallery';
+import { MovieGallery } from '../components/MovieGallery/MovieGallery';
 import { useFetchPopularMovies } from '../Hooks/useFetchMovies';
 import css from './Home.module.scss';
 const Home = () => {

@@ -3,9 +3,10 @@ export const CastList = ({ movieCast }) => {
   const { cast } = movieCast;
 
   const element = cast?.map(({ cast_id, name, character, profile_path }) => (
-    <li className={css.castItem} key={cast_id}>
+    <li className={'castItem'} key={cast_id}>
       {profile_path ? (
         <img
+          className={css.img}
           src={`https://image.tmdb.org/t/p/w185${profile_path}`}
           alt={name}
         />
@@ -18,10 +19,10 @@ export const CastList = ({ movieCast }) => {
           width={185}
         />
       )}
-      <div className={css.castBottomThumb}>
-        <p className={css.title}>{name}</p>
-        <p className={css.title}>
-          <span className={css.titleText}>as</span> {character}
+      <div className={'castBottomThumb'}>
+        <p className={'title'}>{name}</p>
+        <p className={'title'}>
+          <span className={'titleText'}>as</span> {character}
         </p>
       </div>
     </li>
