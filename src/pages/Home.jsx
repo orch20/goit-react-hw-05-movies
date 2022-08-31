@@ -1,5 +1,5 @@
 import { MovieGallery } from '../components/MovieGallery/MovieGallery';
-import { useFetchPopularMovies } from '../hooks/useFetchMovies';
+import { useFetchPopularMovies } from '../hookss/useFetchMovies';
 import css from './Home.module.scss';
 const Home = () => {
   const movies = useFetchPopularMovies();
