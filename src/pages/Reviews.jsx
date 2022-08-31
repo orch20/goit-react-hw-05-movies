@@ -8,23 +8,22 @@ const Reviews = () => {
   const { movieId } = useParams();
 
   useEffect(() => {
+    const reviewsFetch = async () => {
+      try {
+        const data = await getReviews(movieId);
+        setMovieReviews(data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
     reviewsFetch();
-  }, [setMovieReviews]);
 
-  const reviewsFetch = async () => {
-    try {
-      const data = await getReviews(movieId);
-      setMovieReviews(data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-  console.log('movieReviews.length', movieReviews.length === 0);
-  return movieReviews.length === 0 ? (
-    <p>There're no comments</p>
-  ) : (
-    <ReviewsList reviewsList={movieReviews.results} />
-  );
+    return movieReviews.length === 0 ? (
+      <p>There're no comments</p>
+    ) : (
+      <ReviewsList reviewsList={movieReviews.results} />
+    );
+  }, [movieId]);
 };
 
 export default Reviews;
