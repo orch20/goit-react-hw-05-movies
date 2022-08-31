@@ -1,7 +1,4 @@
 .castList {
-  //   display: flex;
-  //   flex-wrap: wrap;
-
   display: grid;
   max-width: calc(100vw - 48px);
   grid-template-columns: repeat(auto-fill, minmax(155px, 1fr));
