@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import { getPopularMovies, getMovieById } from '../services/movieApi';
-
+import { getPopularMovies } from '../services/movieApi';
+// getMovieById;
 export const useFetchPopularMovies = () => {
   const [movies, setMovies] = useState([]);
   useEffect(() => {
@@ -18,20 +18,20 @@ export const useFetchPopularMovies = () => {
   return movies;
 };
 
-export const useFetchMovieById = id => {
-  const [movie, setMovie] = useState({});
+// export const useFetchMovieById = id => {
+//   const [movie, setMovie] = useState({});
 
-  useEffect(() => {
-    getMovie(movie);
-  }, []);
-  const getMovie = async () => {
-    try {
-      const data = await getMovieById(id);
-      console.log(data);
-      setMovie(data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-  return movie;
-};
+//   useEffect(() => {
+//     getMovie(movie);
+//   }, []);
+//   const getMovie = async () => {
+//     try {
+//       const data = await getMovieById(id);
+//       console.log(data);
+//       setMovie(data);
+//     } catch (error) {
+//       console.log(error);
+//     }
+//   };
+//   return movie;
+// };

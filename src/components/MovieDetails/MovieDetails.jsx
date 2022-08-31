@@ -1,4 +1,5 @@
 // import { useFetchPopularMovies } from 'Hooks/useFetchMovies';
+import { useState, useEffect } from 'react';
 import {
   useParams,
   Outlet,
@@ -6,27 +7,33 @@ import {
   useNavigate,
   useLocation,
 } from 'react-router-dom';
-import { useFetchMovieById } from 'Hooks/useFetchMovies';
+import { getMovieById } from '../../services/movieApi';
+// import { useFetchMovieById } from 'Hooks/useFetchMovies';
 import css from './MovieDetails.module.scss';
 const POSTERWIDTH = 300;
 
 const MovieDetails = () => {
   const { movieId } = useParams();
-
-  const movie = useFetchMovieById(movieId);
+  const [movie, setMovie] = useState({});
+  // const movie = useFetchMovieById(movieId);
   const navigate = useNavigate();
   const location = useLocation();
   const { from } = location?.state || '/';
   const goBack = () => navigate(from);
-  // /////////////////////////
-  // const image = useMovieImage(movie.poster_path);
-  // console.log('1111111111111', movie);
-  // release_date;
-  // genres name id
-  // overview
-  // vote_average
-  // ////////////////////////
 
+  useEffect(() => {
+    const getMovie = async () => {
+      try {
+        const data = await getMovieById(movieId);
+
+        setMovie(data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getMovie();
+  }, [movieId]);
+  console.log('movie deded', movie);
   return (
     <div className={css.wraper}>
       <button className={css.button} onClick={goBack}>

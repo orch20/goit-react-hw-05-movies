@@ -6,7 +6,7 @@ import { ReviewsList } from 'Components/ReviewsList/ReviewsList';
 const Reviews = () => {
   const [movieReviews, setMovieReviews] = useState([]);
   const { movieId } = useParams();
-
+  console.log('movieReviews', movieReviews);
   useEffect(() => {
     const reviewsFetch = async () => {
       try {
@@ -17,13 +17,13 @@ const Reviews = () => {
       }
     };
     reviewsFetch();
-
-    return movieReviews.length === 0 ? (
-      <p>There're no comments</p>
-    ) : (
-      <ReviewsList reviewsList={movieReviews.results} />
-    );
   }, [movieId]);
+
+  return movieReviews.length === 0 ? (
+    <p>There're no comments</p>
+  ) : (
+    <ReviewsList reviewsList={movieReviews.results} />
+  );
 };
 
 export default Reviews;
